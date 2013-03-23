@@ -1,4 +1,5 @@
 <?php
+require 'yhteys.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,13 @@
     </head>
     <body>
         <?php
-            
+            try{
+                $yhdistaja = new yhteys();
+                $yhteys = $yhdistaja->getYhteys();
+        } catch (PDOException $e){
+            echo $e->getLine();
+            die("VIRHE" . $e->getMessage());
+        }
         ?>
     </body>
 </html>
