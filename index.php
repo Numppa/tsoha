@@ -1,5 +1,5 @@
 <?php
-require 'yhteys.php';
+require 'Kyselyt.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,13 +9,14 @@ require 'yhteys.php';
     </head>
     <body>
         <?php
-            try{
-                $yhdistaja = new yhteys();
-                $yhteys = $yhdistaja->getYhteys();
-        } catch (PDOException $e){
-            echo $e->getLine();
-            die("VIRHE" . $e->getMessage());
+        $kirjautuminen = $kyselija->kirjaudu("admin", "testi");
+        if($kirjautuminen){
+            echo 'onnistui';
+        } else {
+            echo 'ei onnistunut';
         }
+        
+        
         ?>
     </body>
 </html>
