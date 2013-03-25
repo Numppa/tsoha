@@ -8,7 +8,7 @@ function ohjaa($sijainti){
 
 function onko_kirjautunut() {
     global $sessio;
-    if (!isset($sessio->$kayttaja)) {
+    if (!isset($sessio->kayttaja_id)) {
         ohjaa('kirjautumissivu.php');
     }
 }
