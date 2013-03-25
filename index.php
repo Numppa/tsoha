@@ -1,5 +1,5 @@
 <?php
-require 'kirjautumissivu.php';
+require 'ohjaus.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,8 @@ require 'kirjautumissivu.php';
     </head>
     <body>
         <?php
-        header("Location: kirjautumissivu.php");
+        onko_kirjautunut();
+        
         ?>
     </body>
 </html>
