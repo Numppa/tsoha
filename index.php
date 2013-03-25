@@ -1,22 +1,15 @@
 <?php
-require 'Kyselyt.php';
+require 'kirjautumissivu.php';
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>tsoha</title>
     </head>
     <body>
         <?php
-        $kirjautuminen = $kyselija->kirjaudu("admin", "testi");
-        if($kirjautuminen){
-            echo 'onnistui';
-        } else {
-            echo 'ei onnistunut';
-        }
-        
-        
+        header("Location: kirjautumissivu.php");
         ?>
     </body>
 </html>
