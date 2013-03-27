@@ -10,7 +10,7 @@ require 'ohjaus.php';
     <body>
         <?php
         onko_kirjautunut();
-        
+        ohjaa('alkunakyma.php');
         ?>
     </body>
 </html>

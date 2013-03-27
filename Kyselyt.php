@@ -15,6 +15,17 @@ class Kyselyt {
         }
         return null;
     }
+    
+    public function hae_ryhmat($kayttaja_id){
+        $kysely = $this->pdo->prepare('SELECT nimi FROM ryhmat');
+        
+//        if ($kysely->execute(array($kayttaja_id))){
+//            return $kysely->fetchObject();
+//        }
+//        return null;
+        return $kysely->fetchObject();
+    }
+    
 
 }
 require dirname(__FILE__).'/yhteys.php';
