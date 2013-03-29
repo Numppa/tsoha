@@ -1,5 +1,4 @@
 <?php
-
 class Kyselyt {
     private $pdo;
     
@@ -17,13 +16,11 @@ class Kyselyt {
     }
     
     public function hae_ryhmat($kayttaja_id){
-        $kysely = $this->pdo->prepare('SELECT nimi FROM ryhmat');
-        
-//        if ($kysely->execute(array($kayttaja_id))){
-//            return $kysely->fetchObject();
-//        }
-//        return null;
-        return $kysely->fetchObject();
+        $kysely = $this->pdo->prepare('SELECT nimi FROM ryhmat , kayttajat , jasenet where jasenet.ryhma = ryhmat.id and kayttajat.tunnus = ? and kayttajat.tunnus = jasenet.tunnus');
+        if ($kysely->execute(array($kayttaja_id))){
+            return $kysely;
+        }
+        return null;
     }
     
 

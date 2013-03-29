@@ -1,16 +1,15 @@
 <?php
 class Sessio{
+    
     function __construct() {
         session_start();
     }
+    
     public function __get($name) {
-        if ($this->__isset[$name]){
-            return $_SESSION[$name];
-        }
-        return null;
+        return $_SESSION[$name];
     }
 
-    public function __isset($name) {
+        public function __isset($name) {
         return isset($_SESSION[$name]);
     }
 
