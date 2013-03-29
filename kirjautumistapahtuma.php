@@ -1,8 +1,7 @@
 <?php
-require 'Kyselyt.php';
-require 'ohjaus.php';
+require_once 'Kyselyt.php';
+require_once 'ohjaus.php';
 
-global $kyselija;
 $kayttaja = $kyselija->kirjaudu($_POST['tunnus'] , $_POST['salasana']);
 if ($kayttaja){
     $sessio->id = $_POST['tunnus'];

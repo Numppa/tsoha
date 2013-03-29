@@ -1,5 +1,5 @@
 <?php
-require 'ohjaus.php';
+require_once 'ohjaus.php';
 ?>
 <!DOCTYPE html>
 <html>

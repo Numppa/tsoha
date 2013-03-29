@@ -15,10 +15,30 @@ class Kyselyt {
         return null;
     }
     
-    public function hae_ryhmat($kayttaja_id){
+    public function hae_ryhmat($id){
         $kysely = $this->pdo->prepare('SELECT nimi FROM ryhmat , kayttajat , jasenet where jasenet.ryhma = ryhmat.id and kayttajat.tunnus = ? and kayttajat.tunnus = jasenet.tunnus');
-        if ($kysely->execute(array($kayttaja_id))){
+        if ($kysely->execute(array($id))){
             return $kysely;
+        }
+        return null;
+    }
+    
+    public function hae_rooli($id){
+        $kysely = $this->pdo->prepare('select rooli from kayttajat where tunnus = ?');
+        if ($kysely->execute(array($id))){
+            $array = $kysely->fetch();
+            $rooli = $array['rooli'];
+            return $rooli;
+        }
+        return null;
+    }
+    
+    public function hae_nimi($id){
+        $kysely = $this->pdo->prepare('select nimi from kayttajat where tunnus = ?');
+        if ($kysely->execute(array($id))){
+            $array = $kysely->fetch();
+            $nimi = $array['nimi'];
+            return $nimi;
         }
         return null;
     }
