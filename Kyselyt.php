@@ -15,17 +15,17 @@ class Kyselyt {
         return null;
     }
     
-    public function hae_ryhmat($id){
+    public function hae_ryhmat($tunnus){
         $kysely = $this->pdo->prepare('SELECT nimi FROM ryhmat , kayttajat , jasenet where jasenet.ryhma = ryhmat.id and kayttajat.tunnus = ? and kayttajat.tunnus = jasenet.tunnus');
-        if ($kysely->execute(array($id))){
+        if ($kysely->execute(array($tunnus))){
             return $kysely;
         }
         return null;
     }
     
-    public function hae_rooli($id){
+    public function hae_rooli($tunnus){
         $kysely = $this->pdo->prepare('select rooli from kayttajat where tunnus = ?');
-        if ($kysely->execute(array($id))){
+        if ($kysely->execute(array($tunnus))){
             $array = $kysely->fetch();
             $rooli = $array['rooli'];
             return $rooli;
@@ -33,9 +33,9 @@ class Kyselyt {
         return null;
     }
     
-    public function hae_nimi($id){
+    public function hae_nimi($tunnus){
         $kysely = $this->pdo->prepare('select nimi from kayttajat where tunnus = ?');
-        if ($kysely->execute(array($id))){
+        if ($kysely->execute(array($tunnus))){
             $array = $kysely->fetch();
             $nimi = $array['nimi'];
             return $nimi;
@@ -43,6 +43,13 @@ class Kyselyt {
         return null;
     }
     
+    public function luo_kayttaja($tunnus , $nimi , $salasana , $rooli){
+        $kysely = $this->pdo->prepare('insert into kayttajat values (? , ? , ? , ?)');
+        if ($kysely->execute(array($tunnus , $nimi , $salasana , $rooli))){
+            return true;
+        }
+        return false;
+    }
 
 }
 require dirname(__FILE__).'/yhteys.php';
