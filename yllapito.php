@@ -3,7 +3,7 @@ require_once 'ylapalkki.php';
 require_once 'Kyselyt.php';
 require_once 'ohjaus.php';
 
-onko_kirjautunut();
+onko_kirjautunut(1);
 ?>
 <p>
     <a href="yllapito/kayttajahallinta.php">Hallitse käyttäjiä</a>

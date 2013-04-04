@@ -1,0 +1,13 @@
+Työryhmätiedotus
+
+Sovelluksen tarkoitus on tarjota tiedotuskanava määrätylle suljetulle ryhmälle. Ryhmän sisällä käyttäjät voivat lukea ja luoda kirjoituksia. Kirjoituksia on mahdollista kommentoida ja sovellus pitää kirjaa, ketkä ovat nähneet kirjoituksen. 
+
+Jokaiselle ryhmälle voidaan asettaa yksi tai useampi vetäjä. Ryhmän vetäjän tehtävänä on johtaa ryhmän sisällä käytävää toimintaa ja pitää ryhmän jäsenlista ajantasalla. 
+
+Sovelluksessa on kahdenlaisia käyttäjiä: ylläpitäjiä ja tavallisia käyttäjiä. Ylläpitäjän tehtäviin kuuluu:
+-uusien käyttäjien luominen/tarpeettomiksi jääneiden poistaminen
+-ryhmien luominen/poistaminen
+-ryhmien vetäjien nimeäminen
+-muut vastaavat ylläpitotoimet
+
+Käyttäjällä on mahdollisuus nähdä ainoastaan niiden ryhmien aktiviteetit, joiden jäsenenä hän on. Lisäksi ylläpitäjä voi nimetä käyttäjän ryhmän vetäjäksi, jolloin korotetut oikeudet koskevat vain kyseistä ryhmää. 

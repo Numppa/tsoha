@@ -66,6 +66,14 @@ class Kyselyt {
         }
         return false;
     }
+    
+    public function hae_kaikki_ryhmat(){
+        $kysely = $this->pdo->prepare('select id , nimi from ryhmat');
+        if ($kysely->execute()){
+            return $kysely;
+        }
+        return null;
+    }
 
 }
 require dirname(__FILE__).'/yhteys.php';

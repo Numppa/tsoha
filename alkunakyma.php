@@ -2,7 +2,8 @@
 require_once 'ohjaus.php';
 require_once 'Kyselyt.php';
 
-onko_kirjautunut();
+onko_kirjautunut(0);
+
 require 'ylapalkki.php';
 
 

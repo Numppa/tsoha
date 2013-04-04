@@ -2,7 +2,7 @@
 require_once '../ohjaus.php';
 require_once '../Kyselyt.php';
 
-onko_kirjautunut();
+onko_kirjautunut(1);
 
 if ($_POST['salasana'] != $_POST['uudestaan'] || empty($_POST['salasana'])){
     ohjaa('uusikayttaja.php');

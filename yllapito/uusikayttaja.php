@@ -1,7 +1,7 @@
 <?php
 require_once '../ylapalkki.php';
 require_once '../ohjaus.php';
-onko_kirjautunut();
+onko_kirjautunut(1);
 ?>
 <p>
 <form action="lisaakayttaja.php" method="post">

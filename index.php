@@ -9,7 +9,7 @@ require_once 'ohjaus.php';
     </head>
     <body>
         <?php
-        onko_kirjautunut();
+        onko_kirjautunut(0);
         ohjaa('alkunakyma.php');
         ?>
     </body>
