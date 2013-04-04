@@ -50,6 +50,22 @@ class Kyselyt {
         }
         return false;
     }
+    
+    public function onko_ryhmaa($nimi){
+        $kysely = $this->pdo->prepare('select nimi from ryhmat where ? = nimi');
+        if ($kysely->execute(array($nimi))){
+            return $kysely->fetch();
+        }
+        return null;
+    }
+    
+    public function luo_ryhma($nimi){
+        $kysely = $this->pdo->prepare('insert into ryhmat (nimi) values (?)');
+        if ($kysely->execute(array($nimi))){
+            return true;
+        }
+        return false;
+    }
 
 }
 require dirname(__FILE__).'/yhteys.php';

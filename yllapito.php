@@ -6,5 +6,7 @@ require_once 'ohjaus.php';
 onko_kirjautunut();
 ?>
 <p>
-    <a href="yllapito/uusikayttaja.php">lisää uusi käyttäjä</a>
+    <a href="yllapito/kayttajahallinta.php">Hallitse käyttäjiä</a>
+    <br>
+    <a href="yllapito/ryhmahallinta.php">Hallitse ryhmiä</a>
 </p>

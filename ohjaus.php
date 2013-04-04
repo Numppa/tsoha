@@ -10,7 +10,7 @@ function ohjaa($sijainti){
 function onko_kirjautunut() {
     global $sessio;
     if (!isset($sessio->id)) {
-        ohjaa('kirjautumissivu.php');
+        ohjaa('/tsoha/kirjautumissivu.php');
     }
 }
 

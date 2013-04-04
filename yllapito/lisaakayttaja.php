@@ -18,7 +18,7 @@ if (!is_null($nimi)){
 }
 
 $lisays = $kyselija->luo_kayttaja($_POST['tunnus'] , $_POST['nimi'] , $_POST['salasana'] , $_POST['rooli']);
-if ($lisays){
+if ($lisays){ 
     ohjaa('../index.php');
 } else {
     ohjaa('uusikayttaja.php');
