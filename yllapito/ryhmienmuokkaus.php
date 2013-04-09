@@ -5,19 +5,24 @@ onko_kirjautunut(1);
 
 $ryhmat = $kyselija->hae_kaikki_ryhmat();
 
+
 echo '<table border>';
+echo '<form method="post" action="muokkaaryhmaa.php">';
 while ($rivi = $ryhmat->fetch()){
-    echo '<tr>';
-    echo '<td>' . $rivi['id'] . '</td>';
-    echo '<td>' . $rivi['nimi'] . '</td>';
+    ?>
+<tr>
+<td>
+    <?php echo $rivi['id']; ?>
+</td>
+<td>
+    <?php echo $rivi['nimi'] ?>
+</td>
     
-    echo '<td> <form action="muokkaaryhmaa.php" method="post">';  
-    echo '<input type="submit" name="' . $rivi['id'].'" value="muokkaa"';
-    echo '</form>  </td>';
-    
-    echo '</tr>';
+    <td>  
+        <button type="submit" name="id" value="<?php echo $rivi['id']; ?>">muokkaa</button>
+    </td>
+</tr>
+<?php
 }
-echo '</table>';
-
-
+echo '</form> </table>';
 ?>

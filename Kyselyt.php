@@ -51,7 +51,16 @@ class Kyselyt {
         return false;
     }
     
-    public function onko_ryhmaa($nimi){
+    public function hae_ryhma($id){
+        $kysely = $this->pdo->prepare('select nimi from ryhmat where ? = id');
+        if ($kysely->execute(array($id))){
+            $array = $kysely->fetch();
+            return $array['nimi'];
+        }
+        return null;
+    }
+
+        public function onko_ryhmaa($nimi){
         $kysely = $this->pdo->prepare('select nimi from ryhmat where ? = nimi');
         if ($kysely->execute(array($nimi))){
             return $kysely->fetch();
