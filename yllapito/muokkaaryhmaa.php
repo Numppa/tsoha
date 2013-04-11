@@ -10,4 +10,10 @@ echo '<p>';
 echo 'muokkaa ryhmää ' . $ryhman_nimi;
 echo '</p>';
 ?>
-
+<br>
+<form action="vaihda_nimea">
+    <p>Vaihda ryhmän nimeä:
+        <input type="text">
+        <input type="submit" name="nimi" value="vaihda nimeä">
+    </p>
+</form>

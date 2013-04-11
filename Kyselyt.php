@@ -83,6 +83,10 @@ class Kyselyt {
         }
         return null;
     }
+    
+    public function hae_jasenet($ryhman_id){
+        //$kysely = $this->pdo->prepare('select kayttajat.nimi , jasenet.rooli from jasenet , ryhmat , kayttajat , where ');
+    }
 
 }
 require dirname(__FILE__).'/yhteys.php';
