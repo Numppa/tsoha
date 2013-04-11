@@ -7,10 +7,14 @@ class Kyselyt {
     }
 
     public function kirjaudu($tunnus, $salasana) {
-        $kysely = $this->pdo->prepare('SELECT tunnus , salasana from kayttajat 
-            where ? = tunnus and ? = salasana');
-        if ($kysely->execute(array($tunnus , $salasana))){
-            return $kysely->fetchObject();
+        $kysely = $this->pdo->prepare('SELECT salasana from kayttajat 
+            where ? = tunnus');
+        if ($kysely->execute(array($tunnus))){
+            $rivi = $kysely->fetch();
+            if ($salasana != $rivi['salasana']){
+                return null;
+            }
+            return 1;
         }
         return null;
     }
@@ -85,9 +89,68 @@ class Kyselyt {
     }
     
     public function hae_jasenet($ryhman_id){
-        //$kysely = $this->pdo->prepare('select kayttajat.nimi , jasenet.rooli from jasenet , ryhmat , kayttajat , where ');
+        $kysely = $this->pdo->prepare('select kayttajat.tunnus , jasenet.rooli 
+            from jasenet , ryhmat , kayttajat
+            where jasenet.tunnus = kayttajat.tunnus
+            and jasenet.ryhma = ryhmat.id
+            and ryhmat.id = ?');
+        if ($kysely->execute(array($ryhman_id))){
+            return $kysely;
+        }
+        return null;
+    }
+    
+    public function vaihda_ryhman_nimi($ryhman_id , $uusi_nimi){
+        $kysely = $this->pdo->prepare('update ryhmat set nimi = ? where id = ?');
+        if ($kysely->execute(array($uusi_nimi , $ryhman_id))){
+            return true;
+        }
+        return false;
     }
 
+    public function kayttajan_jasenyys($tunnus , $ryhman_id , $rooli){
+        if (!$this->onko_kayttajaa($tunnus)) {
+            return false;
+        }
+        if ($this->onko_jasen($tunnus , $ryhman_id)){
+            $kysely = $this->pdo->prepare('update jasenet set rooli = ?
+                where tunnus = ? and ryhma = ?');
+            if ($kysely->execute(array($rooli , $tunnus , $ryhman_id))){
+                return true;
+            }
+        } else {
+            $kysely = $this->pdo->prepare('insert into jasenet (tunnus , ryhma , rooli) values (? , ? , ?)');
+            if ($kysely->execute(array($tunnus , $ryhman_id , $rooli))){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public function onko_kayttajaa($tunnus){
+        $kysely = $this->pdo->prepare('select tunnus from kayttajat where tunnus = ?');
+        if($kysely->execute(array($tunnus))){
+            $rivi = $kysely->fetch();
+            if (empty($rivi)) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+    
+    public function onko_jasen($tunnus , $ryhman_id){
+        $kysely = $this->pdo->prepare('select tunnus from jasenet 
+            where tunnus = ? and ryhma = ?');
+        if($kysely->execute(array($tunnus , $ryhman_id))){
+            $rivi = $kysely->fetch();
+            if (empty($rivi)) {
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
 }
 require dirname(__FILE__).'/yhteys.php';
 $kyselija = new Kyselyt($yhteys);

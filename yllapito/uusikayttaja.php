@@ -4,7 +4,7 @@ require_once '../ohjaus.php';
 onko_kirjautunut(1);
 ?>
 <p>
-<form action="lisaakayttaja.php" method="post">
+<form action="toiminnot/lisaakayttaja.php" method="post">
     Nimi 
     <input type="text" name="nimi">
     <br>
