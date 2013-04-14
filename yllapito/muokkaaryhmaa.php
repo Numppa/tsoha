@@ -44,6 +44,9 @@ $jasenet = $kyselija->hae_jasenet($ryhman_id);
         <td>
             rooli
         </td>
+        <td>
+            poista rymästä
+        </td>
     </tr>
 <?php
 while ($rivi = $jasenet->fetch()){
@@ -54,6 +57,12 @@ while ($rivi = $jasenet->fetch()){
     </td>
     <td>
         <?php echo $rivi['rooli']; ?>
+    </td>
+    <td>
+        <form action="toiminnot/poistaryhmasta.php" method="post">
+            <input type="hidden" name="ryhma" value="<?php echo $ryhman_id; ?>">
+            <button type="submit" name="tunnus" value="<?php echo $rivi['tunnus'] ?>">poista</button>
+        </form>
     </td>
 </tr>
 </p>

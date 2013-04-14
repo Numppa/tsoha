@@ -151,6 +151,34 @@ class Kyselyt {
         }
         return false;
     }
+    
+    public function poista_ryhmasta($ryhman_id , $tunnus){
+        $kysely = $this->pdo->prepare('delete from jasenet where tunnus = ? and ryhma = ?');
+        if ($kysely->execute(array($tunnus , $ryhman_id))){
+            return true;
+        }
+        return false;
+    }
+    
+    public function hae_kayttajat(){
+        $kysely = $this->pdo->prepare('select nimi , tunnus from kayttajat');
+        if ($kysely->execute()){
+            return $kysely;
+        }
+        return null;
+    }
+    
+    public function poista_kayttaja($tunnus){
+        $kysely = $this->pdo->prepare('delete from jasenet where tunnus = ?');
+        if ($kysely->execute(array($tunnus))){
+            $kysely = $this->pdo->prepare('delete from kayttajat where tunnus = ?');
+            if ($kysely->execute(array($tunnus))){
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
 }
 require dirname(__FILE__).'/yhteys.php';
 $kyselija = new Kyselyt($yhteys);
