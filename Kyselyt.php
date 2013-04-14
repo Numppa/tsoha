@@ -19,8 +19,21 @@ class Kyselyt {
         return null;
     }
     
-    public function hae_ryhmat($tunnus){
-        $kysely = $this->pdo->prepare('SELECT nimi FROM ryhmat , kayttajat , jasenet where jasenet.ryhma = ryhmat.id and kayttajat.tunnus = ? and kayttajat.tunnus = jasenet.tunnus');
+    public function vaihda_salasana($tunnus , $salasana){
+        $kysely = $this->pdo->prepare('update kayttajat set salasana = ?
+            where tunnus = ?');
+        if ($kysely->execute(array($salasana , $tunnus))){
+            return true;
+        }
+        return false;
+    }
+
+        public function hae_ryhmat($tunnus){
+        $kysely = $this->pdo->prepare('select ryhmat.nimi , ryhmat.id , jasenet.rooli
+            from ryhmat , kayttajat , jasenet 
+            where jasenet.ryhma = ryhmat.id 
+            and kayttajat.tunnus = ? 
+            and kayttajat.tunnus = jasenet.tunnus');
         if ($kysely->execute(array($tunnus))){
             return $kysely;
         }
