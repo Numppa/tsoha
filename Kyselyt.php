@@ -181,6 +181,7 @@ class Kyselyt {
         return null;
     }
     
+    
     public function poista_kayttaja($tunnus){
         $kysely = $this->pdo->prepare('delete from jasenet where tunnus = ?');
         if ($kysely->execute(array($tunnus))){
@@ -189,6 +190,15 @@ class Kyselyt {
                 return true;
             }
             return false;
+        }
+        return false;
+    }
+    
+    public function kirjoita($ryhman_id , $tunnus , $aihe , $teksti){
+        $kysely = $this->pdo->prepare('insert into kirjoitukset (ryhma , tunnus , aihe , kirjoitus , luontipaiva) 
+            values (? , ? , ? , ? , current_date)');
+        if ($kysely->execute(array($ryhman_id , $tunnus , $aihe , $teksti))){
+            return true;
         }
         return false;
     }
