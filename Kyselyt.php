@@ -202,6 +202,28 @@ class Kyselyt {
         }
         return false;
     }
+    public function hae_aiheet($ryhman_id){
+        $kysely = $this->pdo->prepare('select id , aihe , luontipaiva from kirjoitukset 
+            where ryhma = ?');
+        if ($kysely->execute(array($ryhman_id))){
+            return $kysely;
+        }
+        return null;
+    }
+    
+    public function hae_teksti($tekstin_id){
+        $kysely = $this->pdo->prepare('select aihe , kirjoitus , luontipaiva 
+            from kirjoitukset where id = ?');
+        if ($kysely->execute(array($tekstin_id))){
+            return $kysely;
+        }
+        return null;
+    }
+    
+    public function hae_kommentit(){
+        
+    }
+    
 }
 require dirname(__FILE__).'/yhteys.php';
 $kyselija = new Kyselyt($yhteys);
