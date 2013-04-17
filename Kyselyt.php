@@ -50,7 +50,17 @@ class Kyselyt {
         return null;
     }
     
-    public function hae_nimi($tunnus){
+    public function hae_jasenyyden_laatu($tunnus , $ryhman_id){
+        $kysely = $this->pdo->prepare('select rooli from jasenet 
+            where tunnus = ? and ryhma = ?');
+        if ($kysely->execute(array($tunnus , $ryhman_id))){
+            $array = $kysely->fetch();
+            return $array['rooli'];
+        }
+        return null;
+    }
+
+        public function hae_nimi($tunnus){
         $kysely = $this->pdo->prepare('select nimi from kayttajat where tunnus = ?');
         if ($kysely->execute(array($tunnus))){
             $array = $kysely->fetch();
@@ -195,8 +205,8 @@ class Kyselyt {
     }
     
     public function kirjoita($ryhman_id , $tunnus , $aihe , $teksti){
-        $kysely = $this->pdo->prepare('insert into kirjoitukset (ryhma , tunnus , aihe , kirjoitus , luontipaiva) 
-            values (? , ? , ? , ? , current_date)');
+        $kysely = $this->pdo->prepare('insert into kirjoitukset (ryhma , tunnus , aihe , kirjoitus , luontipaiva , aika) 
+            values (? , ? , ? , ? , current_date , current_time)');
         if ($kysely->execute(array($ryhman_id , $tunnus , $aihe , $teksti))){
             return true;
         }
@@ -212,15 +222,30 @@ class Kyselyt {
     }
     
     public function hae_teksti($tekstin_id){
-        $kysely = $this->pdo->prepare('select aihe , kirjoitus , luontipaiva 
+        $kysely = $this->pdo->prepare('select aihe , kirjoitus , luontipaiva , aika
             from kirjoitukset where id = ?');
         if ($kysely->execute(array($tekstin_id))){
-            return $kysely;
+            return $kysely->fetch();
         }
         return null;
     }
     
-    public function hae_kommentit(){
+    public function poista_aihe($tekstin_id){
+        $kysely = $this->pdo->prepare('delete from kommentit where kirjoitus = ?');
+        if ($kysely->execute(array($tekstin_id))){
+            $kysely = $this->pdo->prepare('delete from kirjoitukset where id = ?');
+            if ($kysely->execute(array($tekstin_id))){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function hae_kommentit($tekstin_id){
+        
+    }
+    
+    public function kommentoi($tekstin_id , $kommentti){
         
     }
     
