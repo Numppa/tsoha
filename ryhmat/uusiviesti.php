@@ -1,4 +1,5 @@
 <?php
+require_once '../alku.php';
 require_once '../ohjaus.php';
 onko_kirjautunut(0);
 require_once '../ylapalkki.php';
@@ -13,3 +14,6 @@ require_once '../ylapalkki.php';
     <input type="submit" value="Lähetä">
 </form>
 </p>
+<?php
+require_once '../loppu.php';
+?>

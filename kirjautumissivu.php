@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+require_once 'alku.php';
+?>
 <p>Kirjaudu sisään</p>
 <form action="kirjautumistapahtuma.php" method="post">
     <p>tunnus:
@@ -10,3 +12,6 @@
         <input type="submit" value="kirjaudu">
     </p>
 </form>
+<?php
+require_once 'loppu.php';
+?>

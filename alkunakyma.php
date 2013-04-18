@@ -1,4 +1,5 @@
 <?php
+require_once 'alku.php';
 require_once 'ohjaus.php';
 require_once 'Kyselyt.php';
 
@@ -39,3 +40,6 @@ $kysely = $kyselija->hae_ryhmat($sessio->id);
 </form>
 </table>
 </p>
+<?php
+require_once 'loppu.php';
+?>

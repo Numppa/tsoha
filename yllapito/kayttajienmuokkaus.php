@@ -1,4 +1,5 @@
 <?php
+require_once '../alku.php';
 require_once '../ohjaus.php';
 require_once '../Kyselyt.php';
 require_once '../ylapalkki.php';
@@ -38,4 +39,5 @@ while ($rivi = $kysely->fetch()){
 </p>
 <?php 
 }
+require_once '../loppu.php';
 ?>

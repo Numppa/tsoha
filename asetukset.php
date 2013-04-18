@@ -1,4 +1,5 @@
 <?php
+require_once 'alku.php';
 require_once 'ohjaus.php';
 require_once 'ylapalkki.php';
 
@@ -14,3 +15,6 @@ onko_kirjautunut(0);
     <input type="submit" value="Vaihda salasana">
 </form>
 </p>
+<?php
+require_once 'loppu.php';
+?>

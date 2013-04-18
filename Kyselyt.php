@@ -222,7 +222,7 @@ class Kyselyt {
     }
     
     public function hae_teksti($tekstin_id){
-        $kysely = $this->pdo->prepare('select aihe , kirjoitus , luontipaiva , aika
+        $kysely = $this->pdo->prepare('select tunnus , aihe , kirjoitus , luontipaiva , aika
             from kirjoitukset where id = ?');
         if ($kysely->execute(array($tekstin_id))){
             return $kysely->fetch();
@@ -242,11 +242,21 @@ class Kyselyt {
     }
 
     public function hae_kommentit($tekstin_id){
-        
+        $kysely = $this->pdo->prepare('select tunnus , teksti , luontipaiva , aika 
+            from kommentit where kirjoitus = ?');
+        if ($kysely->execute(array($tekstin_id))){
+            return $kysely;
+        }
+        return null;
     }
     
-    public function kommentoi($tekstin_id , $kommentti){
-        
+    public function kommentoi($tekstin_id , $tunnus ,  $kommentti){
+        $kysely = $this->pdo->prepare('insert into kommentit (kirjoitus , tunnus , teksti , luontipaiva , aika) 
+            values (? , ? , ? , current_date , current_time)');
+        if ($kysely->execute(array($tekstin_id , $tunnus , $kommentti))){
+            return true;
+        }
+        return false;
     }
     
 }

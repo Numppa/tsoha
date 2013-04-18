@@ -1,4 +1,5 @@
 <?php
+require_once '../alku.php';
 require_once '../ylapalkki.php';
 require_once '../ohjaus.php';
 onko_kirjautunut(1);
@@ -25,4 +26,5 @@ while ($rivi = $ryhmat->fetch()){
 <?php
 }
 echo '</form> </table>';
+require_once '../loppu.php';
 ?>
