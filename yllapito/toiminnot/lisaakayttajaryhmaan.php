@@ -5,11 +5,11 @@ require_once '../../Kyselyt.php';
 onko_kirjautunut(1);
 
 if (empty($_POST['tunnus']) || empty($_POST['rooli']) || empty($_POST['id'])) {
-    ohjaa('../../index.php');
+echo '<p>Käyttäjän lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 if($kyselija->kayttajan_jasenyys($_POST['tunnus'], $_POST['id'], $_POST['rooli'])) {
     ohjaa('../ryhmienmuokkaus.php');
 } else {
-    ohjaa('../../index.php');
+echo '<p>Käyttäjän lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 ?>

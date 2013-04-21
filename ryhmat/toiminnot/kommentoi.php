@@ -6,7 +6,7 @@ onko_kirjautunut(0);
 if ($kyselija->kommentoi($_POST['tekstin_id'], $sessio->id, htmlspecialchars($_POST['kommentti']))){
     ohjaa('../../index.php');
 } else {
-    echo 'Jotain meni vikaan. Kommenttia ei onnistuttu lisäämään. ';
+echo '<p>Kommentin lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 
 ?>

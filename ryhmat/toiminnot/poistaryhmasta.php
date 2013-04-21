@@ -4,12 +4,12 @@ require_once '../../Kyselyt.php';
 onko_kirjautunut(0);
 
 if (!$kyselija->onko_pomo($sessio->id , $_POST['ryhman_id'])){
-    ohjaa('../../index.php');
+    echo '<p>Poistaminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 
 if ($kyselija->poista_ryhmasta($_POST['ryhman_id'] , $_POST['tunnus'])){
     ohjaa('../../index.php');
 } else {
-    ohjaa('../../index.php');
+    echo '<p>Poistaminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 ?>

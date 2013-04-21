@@ -6,6 +6,6 @@ onko_kirjautunut(1);
 if ($kyselija->poista_kayttaja($_POST['tunnus'])) {
     ohjaa('../kayttajienmuokkaus.php');
 } else {
-    ohjaa('../../index.php');
+    echo '<p>Käyttäjän poistaminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 ?>

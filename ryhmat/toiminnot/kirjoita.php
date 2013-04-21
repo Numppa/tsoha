@@ -4,13 +4,13 @@ require_once '../../Kyselyt.php';
 onko_kirjautunut(0);
 
 if (empty($_POST['aihe']) || empty($_POST['teksti'])){
-    ohjaa('../../index.php');
+echo '<p>Aiheen lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 if ($kyselija->kirjoita($_POST['ryhman_id'] , $sessio->id , 
         htmlspecialchars($_POST['aihe']) , htmlspecialchars($_POST['teksti']))){
     ohjaa('../../index.php');
 } else {
-    echo 'jotain meni vikaan, kirjoitusta ei onnistuttu lisäämään';
+    echo '<p>Kirjoituksen lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 
 ?>

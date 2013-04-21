@@ -6,7 +6,7 @@ onko_kirjautunut(1);
 if ($kyselija->poista_ryhmasta($_POST['ryhma'] , $_POST['tunnus'])){
     ohjaa('../ryhmahallinta.php');
 } else {
-    ohjaa('../../index.php');
+    echo '<p>Käyttäjän poistaminen ryhmästä epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 
 ?>
