@@ -50,7 +50,19 @@ class Kyselyt {
         return null;
     }
     
-    public function hae_jasenyyden_laatu($tunnus , $ryhman_id){
+    public function onko_pomo($tunnus , $ryhman_id){
+        $kysely = $this->pdo->prepare('select rooli from jasenet
+            where tunnus = ? and ryhma = ?');
+        if ($kysely->execute(array($tunnus , $ryhman_id))){
+            $rivi = $kysely->fetch();
+            if ($rivi['rooli'] === 'pomo'){
+                return true;
+            }
+        }
+        return false;
+    }
+
+        public function hae_jasenyyden_laatu($tunnus , $ryhman_id){
         $kysely = $this->pdo->prepare('select rooli from jasenet 
             where tunnus = ? and ryhma = ?');
         if ($kysely->execute(array($tunnus , $ryhman_id))){

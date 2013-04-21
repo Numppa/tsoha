@@ -10,7 +10,7 @@ require_once '../ylapalkki.php';
     <br>
     <textarea name="teksti" rows="10" cols="50">Kirjoita tähän</textarea>
     <br>
-    <input type="hidden" name="ryhman_id" value="<?php echo $_POST['ryhman_id']; ?>">
+    <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
     <input type="submit" value="Lähetä">
 </form>
 </p>

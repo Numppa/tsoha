@@ -3,13 +3,23 @@ body {
 }
 
 p  {
-    
+    text-align: left;
 }
 
-p1 {
-    
+#viesti {
+    text-align: left;
+    font-size: larger;
 }
 
-p2 {
-    
+#kommentti {
+    text-align: left;
+    text-indent: 30px;
+}
+
+#kommentoija {
+    text-align: left;
+    text-indent: 15px;
+}
+#ylapalkki {
+    text-align: right;
 }

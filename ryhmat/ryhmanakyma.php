@@ -5,10 +5,20 @@ require_once '../Kyselyt.php';
 onko_kirjautunut(0);
 require_once '../ylapalkki.php';
 ?>
-<form action="uusiviesti.php" method="post">
-    <input type="hidden" name="ryhman_id" value="<?php echo $_POST['ryhman_id']; ?>">
+<form action="uusiviesti.php" method="get">
+    <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
     <input type="submit" value="Kirjoita uusi viesti">
 </form>
+<?php
+if ($kyselija->onko_pomo($sessio->id , $_GET['ryhman_id'])){
+?>
+<form action="muokkaaryhmaa.php" method="get">
+    <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
+    <input type="submit" value="Muokkaa ryhmää">
+</form>
+<?php
+}
+?>
 <p>
 <table border>
     <tr>
@@ -23,7 +33,7 @@ require_once '../ylapalkki.php';
         </td>
     </tr>
     <?php
-    $aiheet = $kyselija->hae_aiheet($_POST['ryhman_id']);
+    $aiheet = $kyselija->hae_aiheet($_GET['ryhman_id']);
     while ($rivi = $aiheet->fetch()) {
         ?>
         <tr>
@@ -34,7 +44,7 @@ require_once '../ylapalkki.php';
                 <?php echo $rivi['luontipaiva']; ?>
             </td>
             <td>
-                <form action="lue.php" method="post">
+                <form action="lue.php" method="get">
                     <input type="hidden" name="tekstin_id" value="<?php echo $rivi['id']; ?>">
                     <input type="submit" value="Lue/kommentoi">
                 </form>

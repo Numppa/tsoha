@@ -5,10 +5,10 @@ require_once '../Kyselyt.php';
 require_once '../ylapalkki.php';
 onko_kirjautunut(0);
 
-$kirjoitus = $kyselija->hae_teksti($_POST['tekstin_id']);
+$kirjoitus = $kyselija->hae_teksti($_GET['tekstin_id']);
 ?>
 <form action="toiminnot/poistaaihe.php" method="post">
-    <input type="hidden" name="tekstin_id" value="<?php echo $_POST['tekstin_id']; ?>">
+    <input type="hidden" name="tekstin_id" value="<?php echo $_GET['tekstin_id']; ?>">
     <input type="submit" value="Poista aihe">
 </form>
 <h1>
@@ -19,21 +19,21 @@ $kirjoitus = $kyselija->hae_teksti($_POST['tekstin_id']);
     <?php echo $kirjoitus['luontipaiva']; ?>
     <?php echo substr($kirjoitus['aika'] , 0 , 5); ?>
 </p>
-<p1>
+<p id="viesti">
     <?php echo $kirjoitus['kirjoitus']; ?>
-</p1>
+</p>
 <?php
-$kommentit = $kyselija->hae_kommentit($_POST['tekstin_id']);
+$kommentit = $kyselija->hae_kommentit($_GET['tekstin_id']);
 while ($rivi = $kommentit->fetch()){
-echo '<p>';
-echo $kyselija->hae_nimi($rivi['tunnus']);
+echo '<p id="kommentoija">';
+echo $kyselija->hae_nimi($rivi['tunnus']) . ' ';
 echo $rivi['luontipaiva'];
 echo substr($rivi['aika'] , 0 , 5);
-echo '</p>';
+echo '</p >';
 ?>
-<p2>
+<p id="kommentti">
     <?php echo $rivi['teksti']; ?>
-</p2>
+</p>
 
 
 
@@ -44,7 +44,7 @@ echo '</p>';
 <form action="toiminnot/kommentoi.php" method="post">
     <textarea name="kommentti" cols="50" rows="8">Kirjoita kommentti</textarea>
     <br>
-    <input type="hidden" name="tekstin_id" value="<?php echo $_POST['tekstin_id']; ?>">
+    <input type="hidden" name="tekstin_id" value="<?php echo $_GET['tekstin_id']; ?>">
     <input type="submit" value="kommentoi">
 </form>
 <?php

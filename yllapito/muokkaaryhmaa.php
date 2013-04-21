@@ -5,7 +5,7 @@ require_once '../Kyselyt.php';
 require_once '../ylapalkki.php';
 onko_kirjautunut(1);
 
-$ryhman_id = $_POST['id'];
+$ryhman_id = $_GET['id'];
 $ryhman_nimi = $kyselija->hae_ryhma($ryhman_id);
 echo '<p>';
 echo 'muokkaa ryhmää ' . $ryhman_nimi;

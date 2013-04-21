@@ -22,7 +22,7 @@ $kysely = $kyselija->hae_ryhmat($sessio->id);
         Rooli
     </td>
 </tr>
-<form action="ryhmat/ryhmanakyma.php" method="post">
+<form action="ryhmat/ryhmanakyma.php" method="get">
     <?php
     while ($rivi = $kysely->fetch()) {
         ?>

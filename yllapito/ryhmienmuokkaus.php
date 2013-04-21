@@ -8,7 +8,7 @@ $ryhmat = $kyselija->hae_kaikki_ryhmat();
 
 
 echo '<table border>';
-echo '<form method="post" action="muokkaaryhmaa.php">';
+echo '<form method="get" action="muokkaaryhmaa.php">';
 while ($rivi = $ryhmat->fetch()){
     ?>
 <tr>
