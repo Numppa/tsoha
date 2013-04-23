@@ -8,7 +8,7 @@ echo '<p>Lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
 
 if ($kyselija->kayttajan_jasenyys($_POST['tunnus'] , $_POST['ryhman_id'] , 'tavallinen')){
-    ohjaa('../../index.php');
+    ohjaa('../muokkaaryhmaa.php?ryhman_id=' . $_POST['ryhman_id']);
 }else {
 echo '<p>Lisääminen. <a href="/tsoha/index.php">alkuun</a></p>';
 }

@@ -19,7 +19,7 @@ echo '<p>Käyttäjän luominen epäonnistui. <a href="/tsoha/index.php">alkuun</
 
 $lisays = $kyselija->luo_kayttaja($_POST['tunnus'] , $_POST['nimi'] , $_POST['salasana'] , $_POST['rooli']);
 if ($lisays){ 
-    ohjaa('../../index.php');
+    ohjaa('../kayttajienmuokkaus.php');
 } else {
 echo '<p>Käyttäjän luominen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }
