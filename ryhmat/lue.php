@@ -4,13 +4,14 @@ require_once '../ohjaus.php';
 require_once '../Kyselyt.php';
 require_once '../ylapalkki.php';
 onko_kirjautunut(0);
+onko_jasen($sessio->id, $_GET['ryhman_id']);
 
 ?>
 <p>
     <a href="../index.php">Alkunäkymä</a>-><a href="ryhmanakyma.php?ryhman_id=<?php echo $_GET['ryhman_id']; ?>"><?php echo $kyselija->hae_ryhma($_GET['ryhman_id']); ?></a>->Lue/kommentoi
 </p>
 <?php
-
+$kyselija->nae_kirjoitus($sessio->id , $_GET['tekstin_id']);
 $kirjoitus = $kyselija->hae_teksti($_GET['tekstin_id']);
 if ($kyselija->onko_pomo($sessio->id , $_GET['ryhman_id'])){
 ?>
@@ -22,6 +23,11 @@ if ($kyselija->onko_pomo($sessio->id , $_GET['ryhman_id'])){
 <?php
 }
 ?>
+<form action="nahneet.php" method="get">
+    <input type="hidden" name="tekstin_id" value="<?php echo $_GET['tekstin_id']; ?>">
+    <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
+    <input type="submit" value="Nähneet">
+</form>
 <h1>
     <?php echo $kirjoitus['aihe']; ?>
 </h1>

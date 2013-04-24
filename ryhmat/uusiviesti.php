@@ -1,8 +1,9 @@
 <?php
 require_once '../alku.php';
 require_once '../ohjaus.php';
-onko_kirjautunut(0);
 require_once '../ylapalkki.php';
+onko_kirjautunut(0);
+onko_jasen($sessio->id, $_GET['ryhman_id']);
 ?>
 <p>
     <a href="../index.php">Alkunäkymä</a>-><a href="ryhmanakyma.php?ryhman_id=<?php echo $_GET['ryhman_id']; ?>"><?php echo $kyselija->hae_ryhma($_GET['ryhman_id']); ?></a>->Uusi viesti

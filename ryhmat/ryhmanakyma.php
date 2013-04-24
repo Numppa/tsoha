@@ -2,8 +2,9 @@
 require_once '../alku.php';
 require_once '../ohjaus.php';
 require_once '../Kyselyt.php';
-onko_kirjautunut(0);
 require_once '../ylapalkki.php';
+onko_kirjautunut(0);
+onko_jasen($sessio->id, $_GET['ryhman_id']);
 ?>
 
 <p>
