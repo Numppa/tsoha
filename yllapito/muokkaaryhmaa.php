@@ -7,10 +7,10 @@ onko_kirjautunut(1);
 
 $ryhman_id = $_GET['id'];
 $ryhman_nimi = $kyselija->hae_ryhma($ryhman_id);
-echo '<p>';
-echo 'muokkaa ryhmää ' . $ryhman_nimi;
-echo '</p>';
 ?>
+<p>
+    <a href="../index.php">Ylläpito</a>-><a href="ryhmahallinta.php">Hallitse ryhmiä</a>-><a href="ryhmienmuokkaus.php">Muokkaa</a>-><?php echo $ryhman_nimi; ?>
+</p>
 <br>
 <form action="toiminnot/nimenvaihto.php" method="post">
     <p>Vaihda ryhmän nimeä:

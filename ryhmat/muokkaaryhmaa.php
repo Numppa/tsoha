@@ -4,27 +4,26 @@ require_once '../ohjaus.php';
 require_once '../Kyselyt.php';
 require_once '../ylapalkki.php';
 onko_kirjautunut(0);
-
-if (!$kyselija->onko_pomo($sessio->id , $_GET['ryhman_id'])){
-    ohjaa('../index.php');
-}
+onko_pomo($sessio->id , $_GET['ryhman_id']);
 
 $ryhman_nimi = $kyselija->hae_ryhma($_GET['ryhman_id']);
-echo '<p>';
-echo 'muokkaa ryhmää ' . $ryhman_nimi;
-echo '</p>';
 ?>
-
+<p>
+    <a href="../index.php">Alkunäkymä</a>-><a href="ryhmanakyma.php?ryhman_id=<?php echo $_GET['ryhman_id']; ?>"><?php echo $kyselija->hae_ryhma($_GET['ryhman_id']); ?></a>->Muokkaa
+</p>
+<p>
+<?php echo 'muokkaa ryhmää ' . $ryhman_nimi; ?>
+</p>
 
 <form action="toiminnot/lisaajasen.php" method="post">
     <p>
         Lisää jäsen:
         <br>
         tunnus: 
-    </p>
     <input type="text" name="tunnus">
     <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
     <input type="submit" value="Lisää">
+    </p>
 </form>
 
 <?php

@@ -8,7 +8,7 @@ echo '<p>Aiheen lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a>
 }
 if ($kyselija->kirjoita($_POST['ryhman_id'] , $sessio->id , 
         htmlspecialchars($_POST['aihe']) , htmlspecialchars($_POST['teksti']))){
-    ohjaa('../ryhmanakyma.php?=ryhman_id=' . $_POST['ryhman_id']);
+    ohjaa('../ryhmanakyma.php?ryhman_id=' . $_POST['ryhman_id']);
 } else {
     echo '<p>Kirjoituksen lisääminen epäonnistui. <a href="/tsoha/index.php">alkuun</a></p>';
 }

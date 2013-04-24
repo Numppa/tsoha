@@ -6,8 +6,11 @@ require_once '../ylapalkki.php';
 onko_kirjautunut(1);
 
 $kysely = $kyselija->hae_kayttajat();
-
 ?>
+<p>
+    <a href="../index.php">Ylläpito</a>-><a href="kayttajahallinta.php">Hallitse käyttäjiä</a>->Muokkaa käyttäjiä
+</p>
+
 <p>
 <table border>
 <form action="toiminnot/poistakayttaja.php" method="post">

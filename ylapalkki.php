@@ -10,8 +10,5 @@ $nimi = $kyselija->hae_nimi($sessio->id);
     <br>
     <a href="/tsoha/asetukset.php">asetukset</a>
 </p>
-<p>
-    <a href="/tsoha/index.php">alkuun </a>
-</p>
 
 

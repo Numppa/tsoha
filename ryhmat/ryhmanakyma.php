@@ -5,6 +5,11 @@ require_once '../Kyselyt.php';
 onko_kirjautunut(0);
 require_once '../ylapalkki.php';
 ?>
+
+<p>
+    <a href="../index.php">Alkunäkymä</a>-><?php echo $kyselija->hae_ryhma($_GET['ryhman_id']); ?>
+</p>
+
 <form action="uusiviesti.php" method="get">
     <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
     <input type="submit" value="Kirjoita uusi viesti">
@@ -46,6 +51,7 @@ if ($kyselija->onko_pomo($sessio->id , $_GET['ryhman_id'])){
             <td>
                 <form action="lue.php" method="get">
                     <input type="hidden" name="tekstin_id" value="<?php echo $rivi['id']; ?>">
+                    <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
                     <input type="submit" value="Lue/kommentoi">
                 </form>
             </td>

@@ -13,6 +13,9 @@ if ($kyselija->hae_rooli($sessio->id) === "admin") {
 $kysely = $kyselija->hae_ryhmat($sessio->id);
 ?>
 <p>
+    Alkunäkymä
+</p>
+<p>
 <table border>
 <tr>
     <td>

@@ -6,6 +6,9 @@ require_once 'ylapalkki.php';
 onko_kirjautunut(0);
 ?>
 <p>
+    <a href="index.php">Alkunäkymä</a>->Asetukset
+</p>
+<p>
     Vaihda salasana: 
     <br>
 <form action="salasananvaihto.php" method="post">

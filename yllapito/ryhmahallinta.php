@@ -5,10 +5,13 @@ require_once '../ylapalkki.php';
 onko_kirjautunut(1);
 ?>
 <p>
+    <a href="../index.php">Ylläpito</a>->Hallitse ryhmiä
+</p>
+<p>
     <a href="uusiryhma.php">lisää uusi ryhmä</a>
     <br>
     <a href="ryhmienmuokkaus.php">muokkaa ryhmiä</a>
 </p>
 <?php
-require_once 'loppu.php';
+require_once '../loppu.php';
 ?>

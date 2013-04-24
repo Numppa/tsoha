@@ -20,4 +20,11 @@ function onko_kirjautunut($admin) {
     }
 }
 
+function onko_pomo($tunnus , $ryhman_id){
+    global $kyselija;
+    if (!$kyselija->onko_pomo($tunnus , $ryhman_id)){
+        ohjaa('/tsoha/index.php');
+    }
+}
+
 ?>

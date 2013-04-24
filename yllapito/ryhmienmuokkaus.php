@@ -5,10 +5,13 @@ require_once '../ohjaus.php';
 onko_kirjautunut(1);
 
 $ryhmat = $kyselija->hae_kaikki_ryhmat();
-
-
-echo '<table border>';
-echo '<form method="get" action="muokkaaryhmaa.php">';
+?>
+<p>
+    <a href="../index.php">Ylläpito</a>-><a href="ryhmahallinta.php">Hallitse ryhmiä</a>->Muokkaa ryhmiä
+</p>
+<table border>
+<form method="get" action="muokkaaryhmaa.php">
+<?php
 while ($rivi = $ryhmat->fetch()){
     ?>
 <tr>

@@ -5,6 +5,9 @@ require_once '../ohjaus.php';
 onko_kirjautunut(1);
 ?>
 <p>
+    <a href="../index.php">Ylläpito</a>-><a href="kayttajahallinta.php">Hallitse käyttäjiä</a>->Lisää uusi käyttäjä
+</p>
+<p>
 <form action="toiminnot/lisaakayttaja.php" method="post">
     Nimi 
     <input type="text" name="nimi">

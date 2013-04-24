@@ -5,6 +5,9 @@ onko_kirjautunut(0);
 require_once '../ylapalkki.php';
 ?>
 <p>
+    <a href="../index.php">Alkunäkymä</a>-><a href="ryhmanakyma.php?ryhman_id=<?php echo $_GET['ryhman_id']; ?>"><?php echo $kyselija->hae_ryhma($_GET['ryhman_id']); ?></a>->Uusi viesti
+</p>
+<p>
 <form action="toiminnot/kirjoita.php" method="post">
     Aihe: <input type="text" name="aihe"> 
     <br>

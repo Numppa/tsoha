@@ -5,6 +5,9 @@ require_once '../ylapalkki.php';
 onko_kirjautunut(1);
 ?>
 <p>
+    <a href="../index.php">Ylläpito</a>->Hallitse käyttäjiä
+</p>
+<p>
     <a href="uusikayttaja.php">Lisää uusi käyttäjä</a>
     <br>
     <a href="kayttajienmuokkaus.php">Muokkaa käyttäjiä</a>
