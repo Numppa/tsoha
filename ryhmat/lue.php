@@ -62,6 +62,7 @@ echo '</p >';
     <textarea name="kommentti" cols="50" rows="8">Kirjoita kommentti</textarea>
     <br>
     <input type="hidden" name="tekstin_id" value="<?php echo $_GET['tekstin_id']; ?>">
+    <input type="hidden" name="ryhman_id" value="<?php echo $_GET['ryhman_id']; ?>">
     <input type="submit" value="kommentoi">
 </form>
 <?php
