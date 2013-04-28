@@ -19,6 +19,10 @@ $ryhman_nimi = $kyselija->hae_ryhma($ryhman_id);
         <input type="submit" value="vaihda nimeä">
     </p>
 </form>
+<form action="toiminnot/poistaryhma.php" method="post">
+    <input type="hidden" name="ryhman_id" value="<?php echo $ryhman_id; ?>">
+    <input type="submit" value="Poista ryhmä">
+</form>
 
 <form action="toiminnot/lisaakayttajaryhmaan.php" method="post">
     <p> Lisää ryhmää käyttäjä tai muuta oikeuksia ryhmässä: <br>

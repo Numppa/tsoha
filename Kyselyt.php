@@ -200,13 +200,37 @@ class Kyselyt {
     }
 
     public function poista_kayttaja($tunnus) {
-        $kysely = $this->pdo->prepare('delete from jasenet where tunnus = ?');
+        $kysely = $this->pdo->prepare('delete from nahnyt where tunnus = ?');
         if ($kysely->execute(array($tunnus))) {
-            $kysely = $this->pdo->prepare('delete from kayttajat where tunnus = ?');
+            $kysely = $this->pdo->prepare('delete from jasenet where tunnus = ?');
             if ($kysely->execute(array($tunnus))) {
-                return true;
+                $kysely = $this->pdo->prepare('delete from kayttajat where tunnus = ?');
+                if ($kysely->execute(array($tunnus))) {
+                    return true;
+                }
             }
-            return false;
+        }
+        return false;
+    }
+    
+    public function poista_ryhma($ryhman_id){
+        $kysely1 = $this->pdo->prepare('delete from nahnyt 
+            where exists(
+            select 1 from kirjoitukset 
+            where nahnyt.kirjoitus = kirjoitukset.id and
+            kirjoitukset.ryhma = ?)');
+        $kysely2 = $this->pdo->prepare('delete from kommentit where exists(
+            select 1 from kirjoitukset 
+            where kommentit.kirjoitus = kirjoitukset.id and
+            kirjoitukset.ryhma = ?)');
+        $kysely3 = $this->pdo->prepare('delete from kirjoitukset where ryhma = ?');
+        $kysely4 = $this->pdo->prepare('delete from jasenet where ryhma = ?');
+        $kysely5 = $this->pdo->prepare('delete from ryhmat where id = ?');
+        $a = array($ryhman_id);
+        if ($kysely1->execute($a) && $kysely2->execute($a) &&
+                $kysely3->execute($a) && $kysely4->execute($a) &&
+                $kysely5->execute($a)){
+                    return true;
         }
         return false;
     }
@@ -281,7 +305,7 @@ class Kyselyt {
             where tunnus = ? and kirjoitus = ?');
         if ($kysely->execute(array($tunnus, $tekstin_id))) {
             $rivi = $kysely->fetch();
-            if (!empty($rivi['tunnus'])){
+            if (!empty($rivi['tunnus'])) {
                 return true;
             }
         }
