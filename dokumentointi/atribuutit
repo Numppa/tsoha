@@ -1,0 +1,59 @@
+Tietokohde: käyttjäjä
+
+Attribuutti	Arvojoukko	kuvailu
+tunnus		merkkijono	avain, käytetään kirjautumisessa
+nimi		merkkijono	oikea nimi
+rooli		merkkijono	tavallinen tai ylläpitäjä
+
+
+tietokohde: ryhmä
+
+Attribuutti	Arvojoukko	kuvailu
+id		kokonaisluku	avain
+nimi		merkkijono	ryhmän nimi
+
+
+tietokohde: jäsen
+
+Attribuutti	Arvojoukko	kuvailu
+id		kokonaisluku	avain
+tunnus		merkkijono	käyttäjätunnus
+rooli		merkkijono	pomo tai tavallinen
+ryhmä		kokonaisluku	ryhmän id
+
+Yksi rivi taulussa kuvaa yhden käyttäjän kuulumista yhteen ryhmään. 
+
+
+tietokohde: kirjoitus
+
+Attribuutti	Arvojoukko	kuvailu
+id		kokonaisluku	avain
+aihe		merkkijono	kirjoituksen aihe
+kirjoitus	merkkijono	sisältö
+ryhmä		kokonaisluku	ryhmän id
+luontipäivä	päivämäärä	
+aika		kellonaika	kirjoituksen tarkka kellonaika
+
+Kuvaa kirjoitusta, joka aloittaa uuden aiheen. 
+
+
+tietokohde: kommentti
+
+Attribuutti	Arvojoukko	kuvailu
+id		kokonaisluku	avain
+kirjoitus	kokonaisluku	viitatun kirjoituksen id
+teksti		merkkijono	sisältö
+luontipäivä	päivämäärä	
+aika		kellkonaika	kommentin tarrka kellonaika
+
+Kommentti liittyy aina johonkin kirjoitukseen eli olemassa olevaan aiheeseen. 
+
+
+tietokohde: nähnyt
+
+Attribuutti	Arvojoukko	kuvailu
+id		kokonailuku	avain
+tunnus		merkkijono	käyttäjätunnus
+kirjoitus	kokonaisluku	viitatun kirjoituksen id
+
+Kertoo, kuka on nähnyt kirjoituksen. 

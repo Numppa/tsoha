@@ -1,0 +1,19 @@
+-sovellus tällä hetkellä pyörii osoitteessa jonu.users.cs.helsinki.fi/tsoha/ 
+-sovelluksen juurihakemisto on siis /tsoha
+-sovellus käyttää PostgreSQL-tietokantaa. Mikäli sovelluksen asentaa jollekin muulle tietokannalle, niin ongelmia saattaa tulla joidenkin kyselyiden kohdalla. 
+
+Sovelluksen asentaminen vaatii oikeat taulut sisältävän tietokannan sekä oikeat asetukset yhteys.php -tiedostossa. 
+
+sensuroitu versio yhteys.php:sta
+<?php
+
+try {
+    $yhteys = new PDO("pgsql:host=localhost;dbname=tietokannan nimi", "käyttäjätunnus", "salasana");
+} catch (Exception $e) {
+    die($e->getMessage());
+}
+$yhteys->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+?>
+
+Taulujen luonti:
+katso tiedostoa 'create table'

@@ -1,0 +1,37 @@
+Kaikkilla käyttäjillä on mahdollisuus vaihtaa oma salasana. 
+
+Tavallisen käyttäjän käyttötapaukset
+
+Viestin lukeminen ja kommentointi:
+Käyttäjä voi lukea ja kommentoida aiheita ryhmässä johon hän kuuluu. 
+Lisäksi hän pystyy tarkistamaan, ketkä muut ovat lukeneet aiheen ensimmäisen viestin. 
+
+Uuden aiheen kirjoittaminen:
+Käyttäjä voi kirjoittaa viestin uudella aiheella ryhmänsä sisällä. 
+
+
+Ryhmän vetäjän käyttötapaukset:
+
+Ryhmän vetäjällä on kyseisessä ryhmässä samat käyttötapaukset kuin tavallisella käyttäjällä. Lisäksi hänellä on pari ylimääräistä toimintoa.
+
+Aiheen poistaminen:
+Ryhmän vetäjä voi halutessaan poistaa ryhmästä aiheen kommentteineen. 
+
+Käyttäjän lisääminen ryhmään:
+Ryhmän vetäjä voi lisätä ryhmään käyttäjiä tai poistaa käyttäjiä ryhmästä. 
+
+
+Ylläpitäjän käyttötapaukset
+
+Tunnuksen lisääminen:
+Ylläpitäjä voi luoda ja poistaa tunnuksia. 
+Uusi tunnus on joko tavallinen tai ylläpitotunnus
+
+Ryhmän lisääminen:
+Ylläpitäjä voi luoda ja poistaa ryhmiä. Lisäksi ryhmän nimen pystyy muuttamaan
+
+Ryhmiin lisääminen:
+Ylläpitäjä voi lisätä ryhmään vetäjiä ja tavallisia jäseniä. 
+Myös jäsenen poistaminen ryhmästä onnistuu. 
+
+

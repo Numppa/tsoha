@@ -1,0 +1,120 @@
+index.php
+Aloitussivu, joka ohjaa kirjautumissivulle, mikäli käyttäjä ei ole kirjautunut. Muussa tapauksessa sivu ohjaa käyttäjän alkunäkymäänsä. 
+
+Kyselyt.php
+Luokka, joka sisältää tietokantakyselyt. Luo uuden $kyselija -olion. 
+
+Sessio.php
+Luokka, joka huolehtii istunnosta. Luo uuden $sessio -olion. 
+
+alku.php
+Sisältää html-dokumentin alkuosia. 
+
+loppu.php
+Sisältää vastaavasti html-dokumentin loppuosia. 
+
+alkunakyma.php
+Tavallisen käyttäjän kirjautumisen jälkeinen alkunäkymä. 
+
+asetukset.php
+Henkilökohtaisten asetusten muokkausnäkymä. Sisältää ainoastaan salasanan vaihtamisen. 
+
+kirjautumissivu.php
+Sivu, jolle ohjataan kirjautumaton käyttäjä. 
+
+kirjautumistapahtuma.php
+Tarkistaa kirjautumisen oikeellisuuden. 
+
+ohjaus.php
+Sisältää ohjaa-metodin, joka ohjaa parametrina saadulle sivulle. Lisäksi tarkistaa käyttäjän pääsyoikeuksia ja ohjaa tarvittaessa toiselle sivulle. 
+
+salasananvaihto.php
+Suorittaa salasanan vaihtamisen. 
+
+ulos.php
+Suorittaa uloskirjautumisen. 
+
+yhteys.php
+Sisältää tietokantayhteyden asetukset. Tämä on tietokantakohtainen. 
+
+ylapalkki.php
+näyttää "yläpalkin"
+
+yllapito.php
+Ylläpitäjän alkunäkymä
+
+tyyli.css
+Sovelluksen ulkoasun asetukset. 
+
+
+ryhmat/lue.php
+Näyttää aiheen ja siihen liittyvät kommentit. 
+
+ryhmat/muokkaaryhmaa.php
+Ryhmän vetäjän hallintanäkymä. 
+
+ryhmat/nahneet.php
+Näyttää, ketkä ovat nähneet aiheen ensimmäisen viestin. 
+
+ryhmat/ryhmanakyma.php
+näyttää yhden ryhmän aiheet. 
+
+ryhmat/uusiviesti.php
+Uuden aiheen kirjoittamistila. 
+
+ryhmat/toiminnot/kirjoita.php
+Uuden aiheen lisääminen ryhmään. 
+
+ryhmat/toiminnot/kommentoi.php
+Kommentin lisääminen kirjoitukselle. 
+
+ryhmat/toiminnot/lisaajasen.php
+Ryhmän vetäjän toiminto. Lisää jäsenen ryhmään. 
+
+ryhmat/toiminnot/poistaaihe.php
+Ryhmän vetäjän toiminto. Poistaa aiheen. 
+
+ryhmat/toiminnot/poistaryhmasta.php
+Ryhmän vetäjän toiminto. Poistaa käyttäjän ryhmästä. 
+
+yllapito/kayttajahallinta.php
+Näkymä näyttää, mitä muutoksia voi käyttäjistöön tehdä.
+
+yllapito/kayttajienmuokkaus.php
+Näyttää listan käyttäjistä. Käytännössä näkymän kautta voi poistaa käyttäjiä. 
+
+yllapito/muokkaaryhmaa.php
+Näyttää yksittäiseen ryhmään kohdistuvat muokkausmahdollisuudet. 
+
+yllapito/ryhmahallinta.php
+Näkymä näyttää, mitä muutoksia voinryhmiin tehdä. 
+
+yllapito/ryhmienmuokkaus.php
+näyttää listan ryhmistä ja antaa linkin niiden muokkaussivuihin. 
+
+yllapito/uusikayttaja.php
+Uuden käyttäjän luomissivu. 
+
+yllapito/uusiryhma.php
+Uuden ryhmän luomissivu. 
+
+yllapito/toiminnot/lisaakayttaja.php
+Suorittaa käyttäjän lisäämisen. 
+
+yllapito/toiminnot/lisaakayttajaryhmaan.php
+Lisää käyttäjän määrättyyn ryhmään. 
+
+yllapito/toiminnot/lisaaryhma.php
+Suorittaa ryhmän lisäämisen. 
+
+yllapito/toiminnot/nimenvaihto.php
+Vaihtaa ryhmän nimeä. 
+
+yllapito/toiminnot/poistakayttaja.php
+Poistaa tunnuksen järjestelmästä. 
+
+yllapito/toiminnot/poistaryhma.php
+Poistaa ryhmän järjestelmästä. 
+
+yllapito/toiminnot/poistaryhmasta.php
+Poistaa käyttäjän ryhmästä. 

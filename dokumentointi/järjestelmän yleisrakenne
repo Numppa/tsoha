@@ -1,0 +1,8 @@
+Sovelluksen toiminnot ovat jaettu kahteen osaan: ylläpitotoiminnot ja ryhmätoiminnot. Lisäksi aloitusnäkymä ja kirjautumisruutu ovat projektin juuressa joka on /tsoha.  Ylläpitoon liittyvät näkymät ja toiminnot ovat siis hakemistossa /tsoha/yllapito ja ryhmiin liittyvät hakemistossa /tsoha/ryhmat
+
+Molemmista hakemistoista löytyy hakemisto 'toiminnot'. niistä löytyy käyttäjien tekemät operaatiot, jotka tekevät muutoksia tietokantaan.
+
+Kaikki tietokantakyselyt löytyvät luokasta Kyselyt ('/tsoha/Kyselyt.php'). 
+
+Kyselyt-luokan käyttämä yhteys.php sisältää tietokantakohtaiset yhteysasetukset. 
+Esimerkki yhteys -oliosta: $yhteys = new PDO("pqsql:host=localhost;dbname=tietokannan nimi", "käyttäjätunnus" , "tietokannan salasana");

@@ -1,0 +1,44 @@
+create table kayttajat 
+(tunnus integer primary key,
+nimi text not null,
+salasana text not null,
+rooli text not null);
+
+create table ryhmat
+(id serial primary key,
+nimi text not null);
+
+create table jasenet
+(id serial primary key,
+tunnus text not null ,
+rooli text not null,
+ryhma integer not null,
+foreign key (tunnus) references kayttajat (tunnus)
+foreign key (ryhma) references ryhmat (id);
+
+create table kirjoitukset
+(id serial primary key,
+aihe text not null, 
+tunnus text not null,
+kirjoitus text,
+ryhma integer not null,
+luontipaiva date not null,
+aika time not null,
+foreign key (tunnus) references kayttajat (tunnus)),
+foreign key (ryhma) references ryhmat (id));
+
+create table kommentit
+(id serial primary key,
+tunnus text not null,
+kirjoitus integer not null,
+teksti text not null,
+luontipaiva date not null,
+aika time not null,
+foreign key (kirjoitus) references kirjoitukset (id));
+
+create table nahnyt
+(id serial primary key,
+tunnus text not null,
+kirjoitus integer not null,
+foreign key (kirjoitus) references kirjoitukset (id)),
+foreign key (tunnus) references kayttajat (tunnus));
